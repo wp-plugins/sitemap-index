@@ -75,6 +75,9 @@ $adres_mapy = $siteurl.'/wp-content/plugins/sitemap-index/gen_sitemap.php';
 			<div id="poststuff">
 				<h3>General Settings:</h3>
 				<p>
+					Plugin version: <b>1.0.2</b>
+				</p>
+				<p>
 					Sitemap URL adres:<br /><a href="<?= $adres_mapy ?>"><?= $adres_mapy ?></a>
 				</p>
 				<p>

@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: Sitemap Index
-Plugin URI: http://code.google.com/p/sitemapi1/
-Description: Creates virtual sitemaps and sitemap index. We can change number of links per sitemap. Sitemap is generated only when it is opening.
+Plugin URI: http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin
+Description: Automaticly generates virtual sitemaps and sitemap index in XML format.
 Author: Twardes
 Version: 1.0.2
 Author URI: http://www.forumbiznesu.eu/
@@ -74,6 +74,9 @@ $adres_mapy = $siteurl.'/wp-content/plugins/sitemap-index/gen_sitemap.php';
 		<form method="post">
 			<div id="poststuff">
 				<h3>General Settings:</h3>
+				<p>
+					Plugin version: <b>1.0.2</b>
+				</p>
 				<p>
 					Sitemap URL adres:<br /><a href="<?= $adres_mapy ?>"><?= $adres_mapy ?></a>
 				</p>

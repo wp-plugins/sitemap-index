@@ -1,6 +1,6 @@
 === Sitemap Index ===
 Contributors: twardes
-Donate link: http://code.google.com/p/sitemapi1/
+Donate link: http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin
 Tags: sitemap, sitemap-index, google-sitemap, sitemapindex, index, google, ask, live, xml
 Requires at least: 2.6.5
 Tested up to: 2.7.1
@@ -12,16 +12,18 @@ Automaticly generates virtual sitemaps and sitemap index in XML format.
 
 Automaticly generates virtual sitemaps and sitemap index in XML format. We can change number of links per sitemap. Sitemap is generated only when it is opening.
 
-Sitemap Index Plugin for Wordpress by Twardes
-
 Feetures:
-* splits sitemaps on many peaces
-* doesn't create .xml or .xml.gz files
-* dynamic generation of sitemaps
+
+*   splits sitemaps on many peaces
+*	doesn't create .xml or .xml.gz files
+*	dynamic generation of sitemaps
+*	possibility of setting number of links per sitemap
+*	Sitemap is generated only when it being opened.
 
 Changes in 1.0.2
-* Fixed sitemap link.
-* Fixed path to blog main folder.
+
+*	Fixed sitemap link.
+*	Fixed path to blog main folder.
 
 == Installation ==
 

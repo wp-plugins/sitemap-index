@@ -170,7 +170,11 @@ $showpages); ?> class="tog"/>
 <h3>About:</h3>
 <p>
 <a href="http://code.google.com/p/sitemapi1/">Sitemap Index at code.google.com</a>
+</p>
+<p>
 <a href="http://wordpress.org/extend/plugins/sitemap-index/">Sitemap Index at Wordpress.org</a>
+</p>
+<p>
 <a href="http://www.forumbiznesu.eu/">Author's Home Page</a>
 </p>
 </div>

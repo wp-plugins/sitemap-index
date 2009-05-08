@@ -15,9 +15,15 @@ Automaticly generates virtual sitemaps and sitemap index in XML format. It is po
 Sitemap Index Plugin for Wordpress by Twardes
 
 Feetures:
+<<<<<<< .mine
+* splits sitemaps on many peaces
+* doesn't create .xml or .xml.gz files
+* dynamic generation of sitemaps
+=======
 - splits sitemaps on many peaces
 - doesn't create .xml or .xml.gz file
 - dynamic generation of sitemaps
+>>>>>>> .r116415
 
 == Installation ==
 
@@ -31,3 +37,7 @@ Feetures:
 = What is my new sitemap adrress? =
 
 The adrress is http://yourblog.com/wp-content/plugins/sitemap-index/gen_sitemap.php
+
+== Screenshots ==
+
+1. Administration interface in WordPress

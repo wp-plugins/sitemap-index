@@ -38,7 +38,7 @@ function si_admin_panel()
     add_option('si_order', 'date_descending', 'Sitemap Index Plugin');
     add_option('si_hidden', 'false', 'Sitemap Index Plugin');
     add_option('si_pages', 'pages_none', 'Sitemap Index Plugin');
-    add_option('si_links', '1000', 'Sitemap Index Plugin');
+    add_option('si_links', '100', 'Sitemap Index Plugin');
 
     //get posted options
     $orderby = $_POST['orderby'];
@@ -176,6 +176,9 @@ $showpages); ?> class="tog"/>
 </div>
 <div id="poststuff">
 <h3>About:</h3>
+<p>
+<a href="http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin/">Sitemap Index Home Page</a>
+</p>
 <p>
 <a href="http://code.google.com/p/sitemapi1/">Sitemap Index at code.google.com</a>
 </p>

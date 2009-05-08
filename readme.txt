@@ -14,7 +14,7 @@ Automaticly generates virtual sitemaps and sitemap index in XML format. We can c
 
 Feetures:
 
-*   splits sitemaps on many peaces
+*	splits sitemaps on many peaces
 *	doesn't create .xml or .xml.gz files
 *	dynamic generation of sitemaps
 *	possibility of setting number of links per sitemap
@@ -27,7 +27,7 @@ Changes in 1.0.2
 
 == Installation ==
 
-1. Unzip and upload whole catalog to /wp-content/plugins
+1. Unzip and upload whole directory to /wp-content/plugins
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Copy your new sitemap link from /wp-admin/options-general.php?page=sitemap-index.php
 4. Submit sitemap to search engines

@@ -14,7 +14,7 @@ Automaticly generates virtual sitemaps and sitemap index in XML format. We can c
 
 Feetures:
 
-*   splits sitemaps on many peaces
+*	splits sitemaps on many peaces
 *	doesn't create .xml or .xml.gz files
 *	dynamic generation of sitemaps
 *	possibility of setting number of links per sitemap

@@ -4,7 +4,7 @@ Plugin Name: Sitemap Index
 Plugin URI: http://code.google.com/p/sitemapi1/
 Description: Creates virtual sitemaps and sitemap index. We can change number of links per sitemap. Sitemap is generated only when it is opening.
 Author: Twardes
-Version: 1.0a
+Version: 1.0.1
 Author URI: http://www.forumbiznesu.eu/
 */
 
@@ -164,7 +164,11 @@ $showpages); ?> class="tog"/>
 </div>
 <div id="poststuff">
 <h3>About:</h3>
-
+<p>
+<a href="http://code.google.com/p/sitemapi1/">Sitemap Index at code.google.com</a>
+<a href="http://wordpress.org/extend/plugins/sitemap-index/">Sitemap Index at Wordpress.org</a>
+<a href="http://www.forumbiznesu.eu/">Author's Home Page</a>
+</p>
 </div>
 </div>
 </div>

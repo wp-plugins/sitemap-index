@@ -4,7 +4,7 @@ Donate link: http://code.google.com/p/sitemapi1/
 Tags: sitemap, sitemap-index, google-sitemap, sitemapindex, index, google, ask, live, xml
 Requires at least: 2.6.5
 Tested up to: 2.7.1
-Stable tag: 1.0a
+Stable tag: 1.0.1
 
 Automaticly generates virtual sitemaps and sitemap index in XML format.
 

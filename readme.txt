@@ -10,20 +10,14 @@ Automaticly generates virtual sitemaps and sitemap index in XML format.
 
 == Description ==
 
-Automaticly generates virtual sitemaps and sitemap index in XML format. It is possible to change number of links per sitemap. Sitemap is generated only when it is opening.
+Automaticly generates virtual sitemaps and sitemap index in XML format. We can change number of links per sitemap. Sitemap is generated only when it is opening.
 
 Sitemap Index Plugin for Wordpress by Twardes
 
 Feetures:
-<<<<<<< .mine
-* splits sitemaps on many peaces
-* doesn't create .xml or .xml.gz files
-* dynamic generation of sitemaps
-=======
 - splits sitemaps on many peaces
-- doesn't create .xml or .xml.gz file
+- doesn't create .xml or .xml.gz files
 - dynamic generation of sitemaps
->>>>>>> .r116415
 
 == Installation ==
 
@@ -37,7 +31,3 @@ Feetures:
 = What is my new sitemap adrress? =
 
 The adrress is http://yourblog.com/wp-content/plugins/sitemap-index/gen_sitemap.php
-
-== Screenshots ==
-
-1. Administration interface in WordPress

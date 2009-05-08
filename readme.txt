@@ -31,3 +31,7 @@ Feetures:
 = What is my new sitemap adrress? =
 
 The adrress is http://yourblog.com/wp-content/plugins/sitemap-index/gen_sitemap.php
+
+== Screenshots ==
+
+1. Administration interface in WordPress 2.7

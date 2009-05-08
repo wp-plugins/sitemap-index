@@ -10,7 +10,7 @@ Automaticly generates virtual sitemaps and sitemap index in XML format.
 
 == Description ==
 
-Automaticly generates virtual sitemaps and sitemap index in XML format. We can change number of links per sitemap. Sitemap is generated only when it is opening.
+Automaticly generates virtual sitemaps and sitemap index in XML format. It is possible to change number of links per sitemap. Sitemap is generated only when it is opening.
 
 Sitemap Index Plugin for Wordpress by Twardes
 

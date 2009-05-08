@@ -16,7 +16,7 @@ Sitemap Index Plugin for Wordpress by Twardes
 
 Feetures:
 - splits sitemaps on many peaces
-- doesn't create .xml or .xml.gz files
+- doesn't create .xml or .xml.gz file
 - dynamic generation of sitemaps
 
 == Installation ==

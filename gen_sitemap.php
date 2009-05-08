@@ -1,7 +1,7 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT'].'/wordpress/wp-config.php');
-
+$tnij = explode("wp-content",$_SERVER["PHP_SELF"]);
+require_once($_SERVER['DOCUMENT_ROOT'].$tnij[0].'wp-load.php');
 
 /*
 $sql = mysql_query("SELECT `option_name`,`option_value` FROM `wp_options` WHERE `option_name` LIKE 'si_order'");

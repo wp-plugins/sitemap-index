@@ -4,7 +4,7 @@ Donate link: http://code.google.com/p/sitemapi1/
 Tags: sitemap, sitemap-index, google-sitemap, sitemapindex, index, google, ask, live, xml
 Requires at least: 2.6.5
 Tested up to: 2.7.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 Automaticly generates virtual sitemaps and sitemap index in XML format.
 
@@ -15,9 +15,13 @@ Automaticly generates virtual sitemaps and sitemap index in XML format. We can c
 Sitemap Index Plugin for Wordpress by Twardes
 
 Feetures:
-- splits sitemaps on many peaces
-- doesn't create .xml or .xml.gz files
-- dynamic generation of sitemaps
+* splits sitemaps on many peaces
+* doesn't create .xml or .xml.gz files
+* dynamic generation of sitemaps
+
+Changes in 1.0.2
+* Fixed sitemap link.
+* Fixed path to blog main folder.
 
 == Installation ==
 
@@ -34,4 +38,4 @@ The adrress is http://yourblog.com/wp-content/plugins/sitemap-index/gen_sitemap.
 
 == Screenshots ==
 
-1. Administration interface in WordPress 2.7
+1. Administration interface in WordPress

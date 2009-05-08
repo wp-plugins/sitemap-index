@@ -4,17 +4,21 @@ Plugin Name: Sitemap Index
 Plugin URI: http://code.google.com/p/sitemapi1/
 Description: Creates virtual sitemaps and sitemap index. We can change number of links per sitemap. Sitemap is generated only when it is opening.
 Author: Twardes
-Version: 1.0.1
+Version: 1.0.2
 Author URI: http://www.forumbiznesu.eu/
 */
 
 /*
 Updates:
+1.0.2
+* Fixed sitemap link.
+* Fixed path to blog main folder.
+
 1.0.1
-Added new links in admin panel
+* Added new links in admin panel
 
 1.0a
-Alfa version.
+* Alfa version.
 */
 
 
@@ -58,7 +62,8 @@ function si_admin_panel()
         $manylinks = get_option('si_links');
     }
 
-    $adres_mapy = $_SERVER["SERVER_NAME"].'/wp-content/plugins/sitemap-index/gen_sitemap.php';
+$siteurl = get_option('siteurl');
+$adres_mapy = $siteurl.'/wp-content/plugins/sitemap-index/gen_sitemap.php';
 
 
 ?>
@@ -70,7 +75,7 @@ function si_admin_panel()
 			<div id="poststuff">
 				<h3>General Settings:</h3>
 				<p>
-					Sitemap URL adres:<br /><a href="http://<?= $adres_mapy ?>"><?= $adres_mapy ?></a>
+					Sitemap URL adres:<br /><a href="<?= $adres_mapy ?>"><?= $adres_mapy ?></a>
 				</p>
 				<p>
 					<label>
@@ -157,13 +162,13 @@ $showpages); ?> class="tog"/>
 <div id="poststuff">
 <h3>Submit Sitemap To:</h3>
 	<p>
-	<a href="http://www.google.com/webmasters/sitemaps/ping?sitemap=http://<?= $adres_mapy ?>">Google</a>
+	<a href="http://www.google.com/webmasters/sitemaps/ping?sitemap=<?= $adres_mapy ?>">Google</a>
 	</p>
 	<p>
-	<a href="http://webmaster.live.com/ping.aspx?siteMap=http://<?= $adres_mapy ?>">Live Search</a>
+	<a href="http://webmaster.live.com/ping.aspx?siteMap=<?= $adres_mapy ?>">Live Search</a>
 	</p>
 	<p>
-	<a href="http://submissions.ask.com/ping?sitemap=http://<?= $adres_mapy ?>">Ask.com</a>
+	<a href="http://submissions.ask.com/ping?sitemap=<?= $adres_mapy ?>">Ask.com</a>
 	</p>
 </div>
 <div id="poststuff">

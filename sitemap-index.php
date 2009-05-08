@@ -10,7 +10,11 @@ Author URI: http://www.forumbiznesu.eu/
 
 /*
 Updates:
-1.0a : Alfa version.
+1.0.1
+Added new links in admin panel
+
+1.0a
+Alfa version.
 */
 
 

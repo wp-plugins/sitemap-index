@@ -186,6 +186,7 @@ $xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ';
 
+
 $data=date("Y-m-d");
 
 $ile_postow = mysql_num_rows(mysql_query("SELECT `ID` FROM ".$table_prefix."posts ".$sqlwhere. $sqlorder.""));

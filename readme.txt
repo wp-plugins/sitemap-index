@@ -25,10 +25,11 @@ Feetures:
 
 1. Unzip and upload whole catalog to /wp-content/plugins
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Submit sitemap
+3. Copy your new sitemap link from /wp-admin/options-general.php
+4. Submit sitemap to search engines
 
 == Frequently Asked Questions ==
 
-= What is my sitemap adrress? =
+= What is my new sitemap adrress? =
 
 The adrress is http://yourblog.com/wp-content/plugins/sitemap-index/gen_sitemap.php

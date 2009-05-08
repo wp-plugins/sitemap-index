@@ -25,7 +25,7 @@ Feetures:
 
 1. Unzip and upload whole catalog to /wp-content/plugins
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Copy your new sitemap link from /wp-admin/options-general.php
+3. Copy your new sitemap link from /wp-admin/options-general.php?page=sitemap-index.php
 4. Submit sitemap to search engines
 
 == Frequently Asked Questions ==

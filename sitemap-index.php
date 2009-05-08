@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: Sitemap Index
-Plugin URI: http://code.google.com/p/sitemapi1/
-Description: Creates virtual sitemaps and sitemap index. We can change number of links per sitemap. Sitemap is generated only when it is opening.
+Plugin URI: http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin
+Description: Automaticly generates virtual sitemaps and sitemap index in XML format.
 Author: Twardes
 Version: 1.0.2
 Author URI: http://www.forumbiznesu.eu/

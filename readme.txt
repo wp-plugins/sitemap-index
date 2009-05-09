@@ -14,27 +14,28 @@ Automaticly generates virtual sitemaps and sitemap index in XML format. It uses 
 
 **Features**
 
-*    splits sitemaps on many parts
-*    doesn’t create .xml or .xml.gz files
-*    dynamic generation of sitemaps
-*    possibility of setting number of links per sitemap
-*    sitemap is generated only when it being opened.
+*	splits sitemaps on many parts
+*	doesn’t create .xml or .xml.gz files
+*	dynamic generation of sitemaps
+*	possibility of setting number of links per sitemap
+*	sitemap is generated only when it being opened.
 
 **Changelog**
+
 1.0.3
-*    File paths changed to more universal
-*    Added new sitemap submission links
-*    Added settings link in plugins menu
+*	File paths changed to more universal
+*	Added new sitemap submission links
+*	Added settings link in plugins menu
 
 1.0.2
-*    Fixed sitemap link.
-*    Fixed path to blog main directory.
+*	Fixed sitemap link.
+*	Fixed path to blog main directory.
 
 1.0.1
-*    Added new links in administrator panel
+*	Added new links in administrator panel
 
 1.0a
-*    Alfa version.
+*	Alfa version.
 
 == Installation ==
 
@@ -52,4 +53,3 @@ The sitemap address is shown in Sitemap Index plugin settings (/wp-admin/options
 == Screenshots ==
 
 1. Administration interface in WordPress
-

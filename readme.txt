@@ -23,18 +23,22 @@ Automaticly generates virtual sitemaps and sitemap index in XML format. It uses 
 **Changelog**
 
 1.0.3
+
 *	File paths changed to more universal
 *	Added new sitemap submission links
 *	Added settings link in plugins menu
 
 1.0.2
+
 *	Fixed sitemap link.
 *	Fixed path to blog main directory.
 
 1.0.1
+
 *	Added new links in administrator panel
 
 1.0a
+
 *	Alfa version.
 
 == Installation ==

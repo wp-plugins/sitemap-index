@@ -4,26 +4,37 @@ Donate link: http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin
 Tags: sitemap, sitemap-index, google-sitemap, sitemapindex, index, google, ask, live, xml
 Requires at least: 2.6.5
 Tested up to: 2.7.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 
 Automaticly generates virtual sitemaps and sitemap index in XML format.
 
 == Description ==
 
-Automaticly generates virtual sitemaps and sitemap index in XML format. We can change number of links per sitemap. Sitemap is generated only when it is opening.
+Automaticly generates virtual sitemaps and sitemap index in XML format. It uses sitemap.org protocol.
 
-Feetures:
+**Features**
 
-*	splits sitemaps on many peaces
-*	doesn't create .xml or .xml.gz files
-*	dynamic generation of sitemaps
-*	possibility of setting number of links per sitemap
-*	Sitemap is generated only when it being opened.
+*    splits sitemaps on many parts
+*    doesn’t create .xml or .xml.gz files
+*    dynamic generation of sitemaps
+*    possibility of setting number of links per sitemap
+*    sitemap is generated only when it being opened.
 
-Changes in 1.0.2
+**Changelog**
+1.0.3
+* File paths changed to more universal
+* Added new sitemap submission links
+* Added settings link in plugins menu
 
-*	Fixed sitemap link.
-*	Fixed path to blog main folder.
+1.0.2
+* Fixed sitemap link.
+* Fixed path to blog main directory.
+
+1.0.1
+* Added new links in administrator panel
+
+1.0a
+* Alfa version.
 
 == Installation ==
 
@@ -34,10 +45,11 @@ Changes in 1.0.2
 
 == Frequently Asked Questions ==
 
-= What is my new sitemap adrress? =
+= What is my new sitemap address? =
 
-The adrress is http://yourblog.com/wp-content/plugins/sitemap-index/gen_sitemap.php
+The sitemap address is shown in Sitemap Index plugin settings (/wp-admin/options-general.php?page=sitemap-index.php).
 
 == Screenshots ==
 
 1. Administration interface in WordPress
+

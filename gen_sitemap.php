@@ -1,7 +1,10 @@
 <?php
 
-$tnij = explode("wp-content",$_SERVER["PHP_SELF"]);
-require_once($_SERVER['DOCUMENT_ROOT'].$tnij[0].'wp-load.php');
+## stara opcja
+## $tnij = explode("wp-content",$_SERVER["PHP_SELF"]);
+## require_once($_SERVER['DOCUMENT_ROOT'].$tnij[0].'wp-load.php');
+
+require_once('../../../wp-load.php');
 
 /*
 $sql = mysql_query("SELECT `option_name`,`option_value` FROM `wp_options` WHERE `option_name` LIKE 'si_order'");
@@ -67,6 +70,7 @@ echo $orderby.$showhidden.$showpages;*/
 $od = $_GET[s];
 $po_ile_postow = $manylinks;
 
+$siteurl = get_option('siteurl');
 
 if (isset($od)) {
 	
@@ -81,11 +85,12 @@ $xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
 	$priority='1';
 
 $xmNOone = "	<url>
-		<loc>http://".$_SERVER["SERVER_NAME"]."</loc>
+		<loc>".$siteurl."</loc>
 		<lastmod>$data</lastmod>
 		<changefreq>$changefreq</changefreq>
 		<priority>$priority</priority>
-	</url>";
+	</url>
+";
 	
 $xmForTresc .= $xmNOone;
 
@@ -192,6 +197,8 @@ $data=date("Y-m-d");
 $ile_postow = mysql_num_rows(mysql_query("SELECT `ID` FROM ".$table_prefix."posts ".$sqlwhere. $sqlorder.""));
 
 #echo $ile_postow;
+if ($ile_postow<=0) {$ile_postow=1;}
+if ($po_ile_postow<=0) {$po_ile_postow=1;}
 
 $ile_map_postow = ceil($ile_postow / $po_ile_postow);
 for($i=0;$i<$ile_map_postow;$i++) {
@@ -200,7 +207,7 @@ $od = $i*$po_ile_postow;
 
 
 $xmlForOffer ="	<sitemap>
-		<loc>http://".$_SERVER["SERVER_NAME"].$_SERVER["PHP_SELF"]."?s=$od</loc>
+		<loc>".$siteurl."/wp-content/plugins/sitemap-index/gen_sitemap.php?s=$od</loc>
 		<lastmod>$data</lastmod>
 	</sitemap>
 ";

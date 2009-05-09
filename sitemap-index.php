@@ -4,18 +4,23 @@ Plugin Name: Sitemap Index
 Plugin URI: http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin
 Description: Automaticly generates virtual sitemaps and sitemap index in XML format.
 Author: Twardes
-Version: 1.0.2
+Version: 1.0.3
 Author URI: http://www.forumbiznesu.eu/
 */
 
 /*
-Updates:
+**Changelog**
+1.0.3
+* File paths changed to more universal
+* Added new sitemap submission links
+* Added settings link in plugins menu
+
 1.0.2
 * Fixed sitemap link.
-* Fixed path to blog main folder.
+* Fixed path to blog main directory.
 
 1.0.1
-* Added new links in admin panel
+* Added new links in administrator panel
 
 1.0a
 * Alfa version.
@@ -75,7 +80,7 @@ $adres_mapy = $siteurl.'/wp-content/plugins/sitemap-index/gen_sitemap.php';
 			<div id="poststuff">
 				<h3>General Settings:</h3>
 				<p>
-					Plugin version: <b>1.0.2</b>
+					Plugin version: <b>1.0.3</b>
 				</p>
 				<p>
 					Sitemap URL adres:<br /><a href="<?= $adres_mapy ?>"><?= $adres_mapy ?></a>
@@ -164,14 +169,24 @@ $showpages); ?> class="tog"/>
 <div style="float: left; width: 220px; margin-right: 10px;">
 <div id="poststuff">
 <h3>Submit Sitemap To:</h3>
+<!-- 	<p>
+		<a href="http://www.sitemapwriter.com/notify.php?crawler=all&url=<?###usunac###= $adres_mapy ?>"><b>All search engines</b></a>
+	</p> -->
 	<p>
-	<a href="http://www.google.com/webmasters/sitemaps/ping?sitemap=<?= $adres_mapy ?>">Google</a>
+		<a href="http://www.google.com/webmasters/sitemaps/ping?sitemap=<?= $adres_mapy ?>">Google</a>
 	</p>
 	<p>
-	<a href="http://webmaster.live.com/ping.aspx?siteMap=<?= $adres_mapy ?>">Live Search</a>
+		<a href="http://webmaster.live.com/ping.aspx?siteMap=<?= $adres_mapy ?>">Live Search</a>
 	</p>
 	<p>
-	<a href="http://submissions.ask.com/ping?sitemap=<?= $adres_mapy ?>">Ask.com</a>
+		<a href="http://submissions.ask.com/ping?sitemap=<?= $adres_mapy ?>">Ask.com</a>
+	</p>
+	<p>
+		<a href="http://search.yahooapis.com/SiteExplorerService/V1/updateNotification?appid=SitemapWriter&url=<?= $adres_mapy ?>">Yahoo!</a><!--&nbsp;or&nbsp;
+		<a href="http://search.yahooapis.com/SiteExplorerService/V1/ping?sitemap=<?###usunac###= $adres_mapy ?>">Yahoo!</a>-->
+	</p>
+	<p>
+		<a href="http://api.moreover.com/ping?u=<?= $adres_mapy ?>">Moreover</a>
 	</p>
 </div>
 <div id="poststuff">
@@ -180,13 +195,13 @@ $showpages); ?> class="tog"/>
 <a href="http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin/">Sitemap Index Home Page</a>
 </p>
 <p>
-<a href="http://code.google.com/p/sitemapi1/">Sitemap Index at code.google.com</a>
-</p>
-<p>
 <a href="http://wordpress.org/extend/plugins/sitemap-index/">Sitemap Index at Wordpress.org</a>
 </p>
 <p>
 <a href="http://www.forumbiznesu.eu/">Author's Home Page</a>
+</p>
+<p>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=QJFMUHRMKC3KG&amp;lc=US&amp;item_name=Sitemap%20Index%20Plugin%20for%20Wordpress%20by%20Twardes&amp;item_number=si&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted"><img class="aligncenter" title="Make a donation" src="http://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" alt="" width="122" height="47" /></a>
 </p>
 </div>
 </div>
@@ -196,6 +211,19 @@ $showpages); ?> class="tog"/>
 }
 
 
+function si_plugin_actions($links, $file){
+	static $this_plugin;
+
+	if( !$this_plugin ) $this_plugin = plugin_basename(__FILE__);
+
+	if( $file == $this_plugin ){
+		$settings_link = '<a href="options-general.php?page=sitemap-index.php">' . __('Settings') . '</a>';
+		$links = array_merge( array($settings_link), $links); // before other links
+	}
+	return $links;
+}
+
 //hooks
 add_action('admin_menu', 'si_admin');
+add_filter('plugin_action_links', 'si_plugin_actions', 10, 2);
 ?>

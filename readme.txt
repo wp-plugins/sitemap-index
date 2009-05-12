@@ -4,7 +4,7 @@ Donate link: http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin
 Tags: sitemap, sitemap-index, google-sitemap, sitemapindex, index, google, ask, live, xml
 Requires at least: 2.6.5
 Tested up to: 2.7.1
-Stable tag: 1.0.3
+Stable tag: 1.1
 
 Automaticly generates virtual sitemaps and sitemap index in XML format.
 
@@ -14,11 +14,12 @@ Automaticly generates virtual sitemaps and sitemap index in XML format. It uses 
 
 **Features**
 
+*	Creates posts, pages, tags and categories sitemaps
 *	splits sitemaps on many parts
-*	doesn’t create .xml or .xml.gz files
-*	dynamic generation of sitemaps
-*	possibility of setting number of links per sitemap
-*	sitemap is generated only when it being opened.
+*	Doesn’t create .xml or .xml.gz files
+*	Dynamic generation of sitemaps
+*	Possibility of setting number of links per sitemap
+*	Sitemap is generated only when it being opened.
 
 **Version 1.1**
 

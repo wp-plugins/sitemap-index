@@ -20,7 +20,23 @@ Automaticly generates virtual sitemaps and sitemap index in XML format. It uses 
 *	possibility of setting number of links per sitemap
 *	sitemap is generated only when it being opened.
 
-**Changelog**
+**Version 1.1**
+
+*	Added tags indexing functionality
+*	Added categories indexing functionality
+*	Changes in administrator panel
+*	PHP code fixes
+
+If you find any problems write [a new topic](http://wordpress.org/tags/sitemap-index).
+
+== Changelog ==
+
+1.1
+
+*	Added tags indexing functionality
+*	Added categories indexing functionality
+*	Changes in administrator panel
+*	PHP code fixes
 
 1.0.3
 
@@ -57,3 +73,4 @@ The sitemap address is shown in Sitemap Index plugin settings (/wp-admin/options
 == Screenshots ==
 
 1. Administration interface in WordPress
+2. Preview of sitemap index

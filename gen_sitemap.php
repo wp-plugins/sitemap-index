@@ -39,6 +39,8 @@ echo $orderby.$showhidden.$showpages;*/
 		$orderby = get_option('si_order'); #echo $orderby;
 		$showhidden = get_option('si_hidden'); #echo $showhidden;
 		$showpages = get_option('si_pages'); #echo $showpages;
+		$showtags = get_option('si_tags');
+		$showcateg = get_option('si_categ');
 		$manylinks = get_option('si_links');
 
 		//do the order by
@@ -66,29 +68,28 @@ echo $orderby.$showhidden.$showpages;*/
 
 
 
-
-$od = $_GET[s];
+$co = $_GET['c'];
+$od = $_GET['s'];
 $po_ile_postow = $manylinks;
 
 $siteurl = get_option('siteurl');
 
-if (isset($od)) {
-	
 
+
+
+if (isset($od)&&!isset($co)) {
 
 $xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ';
 
-	$data=date("Y-m-d");
-	$changefreq='daily';
-	$priority='1';
+$data=date("Y-m-d");
 
 $xmNOone = "	<url>
 		<loc>".$siteurl."</loc>
 		<lastmod>$data</lastmod>
-		<changefreq>$changefreq</changefreq>
-		<priority>$priority</priority>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
 	</url>
 ";
 	
@@ -97,7 +98,7 @@ $xmForTresc .= $xmNOone;
 
 
 	//Do we want the pages too?
-	if ($showpages != 'pages_none') {
+	if ($showpages == 'on') {
 		$sqlpages = "SELECT * FROM " . $table_prefix . "posts where post_type='page' ";
 
 		if ($showhidden != 'on') {
@@ -177,9 +178,87 @@ $xmForTresc .= $xmlForOffer;
 
 $xmlForFooter ='</urlset>';
 
-header('Content-Type: application/xml');
+}
 
-echo ($xmlForHeader.$xmForTresc.$xmlForFooter);
+else if (($co == 'tg')&&($showtags == 'on')) {
+
+$xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+';
+
+$data=date("Y-m-d");	
+
+$xmNOone = "	<url>
+		<loc>".$siteurl."</loc>
+		<lastmod>$data</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+";
+	
+$xmForTresc .= $xmNOone;
+
+$tags = get_terms("post_tag",array("hide_empty"=>true,"hierarchical"=>false));
+if($tags && is_array($tags) && count($tags)>0) {
+foreach($tags AS $tag) {
+$perma = get_tag_link($tag->term_id);
+
+$xmlForOffer ="	<url>
+		<loc>$perma</loc>
+		<lastmod>$data</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.4</priority>
+	</url>
+";
+
+$xmForTresc .= $xmlForOffer;
+}
+
+$xmlForFooter ='</urlset>';
+
+}
+
+}
+
+else if (($co == 'ct')&&($showcateg == 'on')) {
+
+$xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+';
+
+$data=date("Y-m-d");
+
+$xmNOone = "	<url>
+		<loc>".$siteurl."</loc>
+		<lastmod>$data</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+";
+	
+$xmForTresc .= $xmNOone;
+
+$cats = get_terms("category",array("hide_empty"=>true,"hierarchical"=>false));
+if($cats && is_array($cats) && count($cats)>0) {
+
+foreach($cats AS $cat) {
+
+$perma = get_category_link($cat->term_id);
+
+$xmlForOffer ="	<url>
+		<loc>$perma</loc>
+		<lastmod>$data</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+";
+
+$xmForTresc .= $xmlForOffer;
+}
+
+$xmlForFooter ='</urlset>';
+
+}
 
 }
 
@@ -190,7 +269,6 @@ else
 $xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ';
-
 
 $data=date("Y-m-d");
 
@@ -215,12 +293,35 @@ $xmlForOffer ="	<sitemap>
 $xmForTresc .= $xmlForOffer;
 }
 
+
+if ($showtags == 'on') {
+$xmlForOffer ="	<sitemap>
+		<loc>".$siteurl."/wp-content/plugins/sitemap-index/gen_sitemap.php?c=tg</loc>
+		<lastmod>$data</lastmod>
+	</sitemap>
+";
+
+$xmForTresc .= $xmlForOffer;}
+
+
+if ($showcateg == 'on') {
+$xmlForOffer ="	<sitemap>
+		<loc>".$siteurl."/wp-content/plugins/sitemap-index/gen_sitemap.php?c=ct</loc>
+		<lastmod>$data</lastmod>
+	</sitemap>
+";
+
+$xmForTresc .= $xmlForOffer;}
+
+
+
 $xmlForFooter ='</sitemapindex>';
+		
+}
 
 
 header('Content-Type: application/xml');
 echo ($xmlForHeader.$xmForTresc.$xmlForFooter);
 
-		
-}
+
 ?>

@@ -4,12 +4,17 @@ Plugin Name: Sitemap Index
 Plugin URI: http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin
 Description: Automaticly generates virtual sitemaps and sitemap index in XML format.
 Author: Twardes
-Version: 1.1
+Version: 1.2
 Author URI: http://www.forumbiznesu.eu/
 */
 
 /*
 == Changelog ==
+
+1.2
+
+*	Changed sitemap submission function. Now submits to all search engines at once.
+*	Improved sitemap generation.
 
 1.1
 
@@ -90,6 +95,121 @@ function si_admin_panel()
 $siteurl = get_option('siteurl');
 $adres_mapy = $siteurl.'/wp-content/plugins/sitemap-index/gen_sitemap.php';
 
+$added_sitemap = '';
+
+
+function sitemapSubmit($strona,$engine,$OKmessage,$NOmessage)
+{
+	
+	$okTag = 'OKsi';
+	$noTag = 'NOsi';
+	
+	$pingurl = $engine.$strona;
+
+	$source = @file_get_contents("$pingurl");
+
+	if ($source != false) {
+		
+		$source = strip_tags($source);
+		$source = "BUFOR".$source;
+		
+		$isOKmessage = stripos($source,$OKmessage);
+		$isNOmessage = stripos($source,$NOmessage);
+		
+		if (($isOKmessage != false)&&($isNOmessage == false)) {$submitRaport = $okTag.$OKmessage;}
+		if (($isOKmessage == false)&&($isNOmessage != false)) {$submitRaport = $noTag.$NOmessage;}
+		if (($isOKmessage == false)&&($isNOmessage == false)) {$submitRaport = $noTag.'Submission error';}
+
+	}
+	
+	else if ($source == false) {$submitRaport = $noTag.'Engine error';}
+	
+	return array($source, $submitRaport);
+
+}
+
+$silnik = array(
+
+	'goo' => array (
+		'nazwaEngine' => 'Google',
+		'engine' => 'http://www.google.com/webmasters/sitemaps/ping?sitemap=',
+		'OKmessage' => 'Sitemap Notification Received',
+		'NOmessage' => 'Bad Request'
+	),
+
+	'yah' => array (
+		'nazwaEngine' => 'Yahoo!',
+		'engine' => 'http://search.yahooapis.com/SiteExplorerService/V1/ping?sitemap=',
+		'OKmessage' => 'Update notification has successfully submitted',
+		'NOmessage' => 'The following errors were detected'
+	),	
+
+	'liv' => array (
+		'nazwaEngine' => 'Live Search',
+		'engine' => 'http://webmaster.live.com/ping.aspx?siteMap=',
+		'OKmessage' => 'Thanks for submitting your sitemap',
+		'NOmessage' => 'baddddddd'
+	),
+
+	'ask' => array (
+		'nazwaEngine' => 'Ask.com',
+		'engine' => 'http://submissions.ask.com/ping?sitemap=',
+		'OKmessage' => 'Your Sitemap submission was successful',
+		'NOmessage' => 'Your Sitemap submission was not successful'
+	),
+
+	'mor' => array (
+		'nazwaEngine' => 'Moreover',
+		'engine' => 'http://api.moreover.com/ping?u=',
+		'OKmessage' => 'Thank you for your ping',
+		'NOmessage' => 'baddddddd'
+	),
+	
+	'for' => array (
+		'nazwaEngine' => 'ForumBiznesu.eu',
+		'engine' => 'http://www.forumbiznesu.eu/wordpress/submission.php?sitemap=',
+		'OKmessage' => 'Sitemap submission successful',
+		'NOmessage' => 'baddddddd'
+	),
+
+);
+
+
+$addSitemap = $_POST['add'];
+
+if ($addSitemap == 'yes') {
+
+$added_sitemap .= '<p>';
+
+foreach ($silnik as $siln => $cecha )
+{
+	
+$nazwaEngine	= $cecha['nazwaEngine'];
+$engine			= $cecha['engine'];
+$OKmessage		= $cecha['OKmessage'];
+$NOmessage		= $cecha['NOmessage'];
+
+$strona = $adres_mapy;
+
+list ($source, $submitRaport) =  sitemapSubmit($strona,$engine,$OKmessage,$NOmessage);
+
+$statusTag = substr($submitRaport,0,4);
+if ($statusTag == 'OKsi') {$icon = '<img border="0" src="'.$siteurl.'/wp-admin/images/yes.png" /> ';}
+else if ($statusTag == 'NOsi') {$icon = '<img border="0" src="'.$siteurl.'/wp-admin/images/no.png" /> ';}
+else {$icon = '';}
+
+$submitRaport = substr($submitRaport,4);
+
+$insert_sitemap = "\n".$icon."<b>".$nazwaEngine."</b> reported:<br /><i>".$submitRaport."</i><br />";
+$added_sitemap .= $insert_sitemap;	
+}
+
+$added_sitemap .= '</p>';
+
+}
+
+
+
 
 ?>
 
@@ -97,13 +217,13 @@ $adres_mapy = $siteurl.'/wp-content/plugins/sitemap-index/gen_sitemap.php';
 <h2>Sitemap Index Settings</h2>
 	<div>
 		<p>
-			Plugin version: <b>1.1</b>
+			Plugin version: <b>1.2</b>
 		</p>
 		<p>
-			Sitemap URL adres:<br /><a href="<?= $adres_mapy ?>"><?= $adres_mapy ?></a>
+			Sitemap URL address:<br /><a href="<?= $adres_mapy ?>" target="_blank"><?= $adres_mapy ?></a>
 		</p>
 	</div>
-	<div style="float: left; margin-right: 10px; width: 330px">
+	<div style="float: left; margin-right: 10px; width: 250px">
 		<form method="post">
 		
 				<h3>General settings:</h3>
@@ -168,46 +288,34 @@ $orderby); ?> class="tog"/> Alphabetical, ascending
 
 			<div>
 			<p class="submit">
-				<input type="submit" name="info_update" value="Update Options" />
+				<input class="button-primary" type="submit" name="info_update" value="<?php _e('Save Changes') ?>" />
 			</p>
 			</div>
 		</form>
 	</div>
-<div style="float: left; width: 220px; margin-right: 10px;">
+<div style="float: left; width: 280px; margin-right: 10px;">
 
-<h3>Submit Sitemap To:</h3>
-<!-- 	<p>
-		<a href="http://www.sitemapwriter.com/notify.php?crawler=all&url=<?###usunac###= $adres_mapy ?>"><b>All search engines</b></a>
-	</p> -->
-	<p>
-		<a href="http://www.google.com/webmasters/sitemaps/ping?sitemap=<?= $adres_mapy ?>">Google</a>
-	</p>
-	<p>
-		<a href="http://webmaster.live.com/ping.aspx?siteMap=<?= $adres_mapy ?>">Live Search</a>
-	</p>
-	<p>
-		<a href="http://submissions.ask.com/ping?sitemap=<?= $adres_mapy ?>">Ask.com</a>
-	</p>
-	<p>
-		<a href="http://search.yahooapis.com/SiteExplorerService/V1/ping?sitemap=<?= $adres_mapy ?>">Yahoo!</a><!--&nbsp;or&nbsp;
-		<a href="http://search.yahooapis.com/SiteExplorerService/V1/updateNotification?appid=SitemapWriter&url=<?###usunac###= $adres_mapy ?>">Yahoo!</a>-->
-	</p>
-	<p>
-		<a href="http://api.moreover.com/ping?u=<?= $adres_mapy ?>">Moreover</a>
-	</p>
-
+<h3>Submit Sitemap</h3>
+<span class="setting-description">This function submits created sitemap to the most popular search engines (Google, Yahoo, Live Search, Ask.com, Mousover) etc.</span>
+<form method="post">
+<input type="hidden" name="add" value="yes" />
+<p class="submit">
+<input type="submit" name="add_sitemap" value="Submit Sitemap" />
+</p>
+</form>
+<?=$added_sitemap?>
 <h3>About:</h3>
 <p>
-<a href="http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin/">Sitemap Index Home Page</a>
+<a href="http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin/" target="_blank">Sitemap Index Home Page</a>
 </p>
 <p>
-<a href="http://wordpress.org/extend/plugins/sitemap-index/">Sitemap Index at Wordpress.org</a>
+<a href="http://wordpress.org/extend/plugins/sitemap-index/" target="_blank">Sitemap Index at Wordpress.org</a>
 </p>
 <p>
-<a href="http://www.forumbiznesu.eu/">Author's Home Page</a>
+<a href="http://www.forumbiznesu.eu/" target="_blank">Author's Home Page</a>
 </p>
 <p>
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=QJFMUHRMKC3KG&amp;lc=US&amp;item_name=Sitemap%20Index%20Plugin%20for%20Wordpress%20by%20Twardes&amp;item_number=si&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted"><img class="aligncenter" title="Make a donation" src="http://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" alt="" width="122" height="47" /></a>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=QJFMUHRMKC3KG&amp;lc=US&amp;item_name=Sitemap%20Index%20Plugin%20for%20Wordpress%20by%20Twardes&amp;item_number=si&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted" target="_blank"><img class="aligncenter" title="Make a donation" src="http://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" alt="" width="122" height="47" /></a>
 </p>
 
 </div>
@@ -228,6 +336,8 @@ function si_plugin_actions($links, $file){
 	}
 	return $links;
 }
+
+
 
 //hooks
 add_action('admin_menu', 'si_admin');

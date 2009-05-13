@@ -75,12 +75,14 @@ $po_ile_postow = $manylinks;
 $siteurl = get_option('siteurl');
 
 
+$xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by Sitemap Index plug-in for Wordpress version 1.2 (http://wordpress.org/extend/plugins/sitemap-index/) -->
+';
 
 
 if (isset($od)&&!isset($co)) {
 
-$xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+$xmlForHeader .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ';
 
 $data=date("Y-m-d");
@@ -182,8 +184,7 @@ $xmlForFooter ='</urlset>';
 
 else if (($co == 'tg')&&($showtags == 'on')) {
 
-$xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+$xmlForHeader .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ';
 
 $data=date("Y-m-d");	
@@ -222,8 +223,7 @@ $xmlForFooter ='</urlset>';
 
 else if (($co == 'ct')&&($showcateg == 'on')) {
 
-$xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+$xmlForHeader .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ';
 
 $data=date("Y-m-d");
@@ -266,8 +266,7 @@ else
 
 {
 
-$xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+$xmlForHeader .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ';
 
 $data=date("Y-m-d");

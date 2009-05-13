@@ -220,7 +220,7 @@ $added_sitemap .= '</p>';
 			Plugin version: <b>1.2</b>
 		</p>
 		<p>
-			Sitemap URL adres:<br /><a href="<?= $adres_mapy ?>" target="_blank"><?= $adres_mapy ?></a>
+			Sitemap URL address:<br /><a href="<?= $adres_mapy ?>" target="_blank"><?= $adres_mapy ?></a>
 		</p>
 	</div>
 	<div style="float: left; margin-right: 10px; width: 250px">
@@ -288,7 +288,7 @@ $orderby); ?> class="tog"/> Alphabetical, ascending
 
 			<div>
 			<p class="submit">
-				<input class="button-primary" type="submit" name="info_update" value="Update Options" />
+				<input class="button-primary" type="submit" name="info_update" value="<?php _e('Save Changes') ?>" />
 			</p>
 			</div>
 		</form>

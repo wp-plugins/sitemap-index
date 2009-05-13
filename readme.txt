@@ -26,6 +26,7 @@ Automaticly generates virtual sitemaps and sitemap index in the XML format. It u
 
 *	Changed sitemap submission function. Now submits to all search engines at once.
 *	Improved sitemap generation.
+*	Corrected translations.
 
 If you find any problems write [a new topic](http://wordpress.org/tags/sitemap-index).
 
@@ -35,6 +36,7 @@ If you find any problems write [a new topic](http://wordpress.org/tags/sitemap-i
 
 *	Changed sitemap submission function. Now submits to all search engines at once.
 *	Improved sitemap generation.
+*	Corrected translations.
 
 1.1
 

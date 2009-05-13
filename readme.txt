@@ -1,36 +1,40 @@
 === Sitemap Index ===
 Contributors: twardes
 Donate link: http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin
-Tags: sitemap, sitemap-index, google-sitemap, sitemapindex, index, google, ask, live, xml
+Tags: sitemap, sitemap-index, google-sitemap, sitemapindex, index, google, ask, live, xml, submit, ping
 Requires at least: 2.6.5
 Tested up to: 2.7.1
-Stable tag: 1.1
+Stable tag: 1.2
 
-Automaticly generates virtual sitemaps and sitemap index in XML format.
+Automaticly generates virtual sitemaps and sitemap index in the XML format.
 
 == Description ==
 
-Automaticly generates virtual sitemaps and sitemap index in XML format. It uses sitemap.org protocol.
+Automaticly generates virtual sitemaps and sitemap index in the XML format. It uses sitemap.org protocol.
 
 **Features**
 
 *	Creates posts, pages, tags and categories sitemaps
-*	splits sitemaps on many parts
+*	Splits sitemaps on many parts
 *	Doesn’t create .xml or .xml.gz files
 *	Dynamic generation of sitemaps
 *	Possibility of setting number of links per sitemap
+*	Submits created sitemap to the most popular search engines (Google, Yahoo, Live Search, Ask.com, Mousover) etc.
 *	Sitemap is generated only when it being opened.
 
-**Version 1.1**
+**Version 1.2**
 
-*	Added tags indexing functionality
-*	Added categories indexing functionality
-*	Changes in administrator panel
-*	PHP code fixes
+*	Changed sitemap submission function. Now submits to all search engines at once.
+*	Improved sitemap generation.
 
 If you find any problems write [a new topic](http://wordpress.org/tags/sitemap-index).
 
 == Changelog ==
+
+1.2
+
+*	Changed sitemap submission function. Now submits to all search engines at once.
+*	Improved sitemap generation.
 
 1.1
 

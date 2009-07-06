@@ -98,6 +98,18 @@ $adres_mapy = $siteurl.'/wp-content/plugins/sitemap-index/gen_sitemap.php';
 $added_sitemap = '';
 
 
+function getPage($pageUrl, $maxTime)
+{
+    $curl = curl_init($pageUrl);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_TIMEOUT, $maxTime);
+    $result = curl_exec($curl);
+    curl_close($curl);
+    return $result;
+}
+
+
+
 function sitemapSubmit($strona,$engine,$OKmessage,$NOmessage)
 {
 	
@@ -106,7 +118,11 @@ function sitemapSubmit($strona,$engine,$OKmessage,$NOmessage)
 	
 	$pingurl = $engine.$strona;
 
-	$source = @file_get_contents("$pingurl");
+	$source = @file_get_contents($pingurl);
+
+	if ($source == false) {
+		$source = getPage($pingurl,60);
+		}
 
 	if ($source != false) {
 		
@@ -194,14 +210,24 @@ $strona = $adres_mapy;
 list ($source, $submitRaport) =  sitemapSubmit($strona,$engine,$OKmessage,$NOmessage);
 
 $statusTag = substr($submitRaport,0,4);
-if ($statusTag == 'OKsi') {$icon = '<img border="0" src="'.$siteurl.'/wp-admin/images/yes.png" /> ';}
-else if ($statusTag == 'NOsi') {$icon = '<img border="0" src="'.$siteurl.'/wp-admin/images/no.png" /> ';}
-else {$icon = '';}
+if ($statusTag == 'OKsi') {
+	$icon = '<img border="0" src="'.$siteurl.'/wp-admin/images/yes.png" /> ';
+	$alter_link = '';
+	}
+else if ($statusTag == 'NOsi') {
+	$icon = '<img border="0" src="'.$siteurl.'/wp-admin/images/no.png" /> ';
+	$alter_link = '<a href="'.$engine.$strona.'" target="_blank">Try manually</a><br />';
+	}
+else {
+	$icon = '';
+	$alter_link = '';
+	}
 
 $submitRaport = substr($submitRaport,4);
 
-$insert_sitemap = "\n".$icon."<b>".$nazwaEngine."</b> reported:<br /><i>".$submitRaport."</i><br />";
-$added_sitemap .= $insert_sitemap;	
+$insert_sitemap = "\n".$icon."<b>".$nazwaEngine."</b> reported:<br /><i>".$submitRaport."</i><br />".$alter_link;
+$added_sitemap .= $insert_sitemap;
+
 }
 
 $added_sitemap .= '</p>';

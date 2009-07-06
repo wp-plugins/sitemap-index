@@ -3,8 +3,8 @@ Contributors: twardes
 Donate link: http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin
 Tags: sitemap, sitemap-index, google-sitemap, sitemapindex, index, google, ask, live, xml, submit, ping
 Requires at least: 2.6.5
-Tested up to: 2.7.1
-Stable tag: 1.2
+Tested up to: 2.8
+Stable tag: 1.2.1
 
 Automaticly generates virtual sitemaps and sitemap index in the XML format.
 
@@ -22,15 +22,19 @@ Automaticly generates virtual sitemaps and sitemap index in the XML format. It u
 *	Submits created sitemap to the most popular search engines (Google, Yahoo, Live Search, Ask.com, Mousover) etc.
 *	Sitemap is generated only when it being opened.
 
-**Version 1.2**
+**Version 1.2.1**
 
-*	Changed sitemap submission function. Now submits to all search engines at once.
-*	Improved sitemap generation.
-*	Corrected translations.
+*	Fixed sitemap adding. Added second sitemap ping method
+*	Added manual method sitemap submitting.
 
 If you find any problems write [a new topic](http://wordpress.org/tags/sitemap-index).
 
 == Changelog ==
+
+1.2.1
+
+*	Fixed sitemap adding. Added second sitemap ping method
+*	Added manual method sitemap submitting.
 
 1.2
 

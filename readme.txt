@@ -1,7 +1,7 @@
-=== Sitemap Index ===
+﻿=== Sitemap Index ===
 Contributors: twardes
 Donate link: http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin
-Tags: sitemap, sitemap-index, google-sitemap, sitemapindex, index, google, ask, live, xml, submit, ping
+Tags: sitemap, sitemap-index, google-sitemap, sitemapindex, index, google, ask, live, yahoo, xml, xml-sitemap, submit, plugin, ping, posts, pages, tags, categories, sitemaps, splits, generate, links, search-engine
 Requires at least: 2.6.5
 Tested up to: 2.8
 Stable tag: 1.2.1

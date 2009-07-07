@@ -4,12 +4,17 @@ Plugin Name: Sitemap Index
 Plugin URI: http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin
 Description: Automaticly generates virtual sitemaps and sitemap index in XML format.
 Author: Twardes
-Version: 1.2
+Version: 1.2.1
 Author URI: http://www.forumbiznesu.eu/
 */
 
 /*
 == Changelog ==
+
+1.2.1
+
+*	Fixed sitemap adding. Added second sitemap ping method
+*	Added manual method sitemap submitting.
 
 1.2
 

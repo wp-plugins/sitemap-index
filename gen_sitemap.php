@@ -76,7 +76,7 @@ $siteurl = get_option('siteurl');
 
 
 $xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by Sitemap Index plug-in for Wordpress version 1.2 (http://wordpress.org/extend/plugins/sitemap-index/) -->
+<!-- Created by Sitemap Index plug-in for Wordpress version 1.2.1 (http://wordpress.org/extend/plugins/sitemap-index/) -->
 ';
 
 
@@ -116,7 +116,7 @@ $czesc = explode(" ",$data);
 $data = $czesc[0];
 
 if ($data==date("Y-m-d")) {$priority='1';$changefreq='daily';} // z dzisiaj
-else if ($data>=(date("Y-m-d", time() - (60*60*24*2)))) {$priority='0.9';$changefreq='daily';} //od dzi¬∂ do 2 dni temu
+else if ($data>=(date("Y-m-d", time() - (60*60*24*2)))) {$priority='0.9';$changefreq='daily';} //od dzi∂ do 2 dni temu
 else if ($data>=(date("Y-m-d", time() - (60*60*24*4)))) {$priority='0.8';$changefreq='daily';} //od 2 do 4 dni temu
 else if ($data>=(date("Y-m-d", time() - (60*60*24*7)))) {$priority='0.7';$changefreq='weekly';} //od 4 do 7 dni temu
 else if ($data>=(date("Y-m-d", time() - (60*60*24*14)))) {$priority='0.6';$changefreq='weekly';} //od 7 do 14 dni temu
@@ -124,7 +124,7 @@ else if ($data>=(date("Y-m-d", time() - (60*60*24*21)))) {$priority='0.5';$chang
 else if ($data>=(date("Y-m-d", time() - (60*60*24*30)))) {$priority='0.4';$changefreq='monthly';} //od 21 do 30 dni temu
 else if ($data>=(date("Y-m-d", time() - (60*60*24*90)))) {$priority='0.3';$changefreq='monthly';} //od 30 do 90 dni temu
 else if ($data>=(date("Y-m-d", time() - (60*60*24*180)))) {$priority='0.2';$changefreq='monthly';} //od 90 do 180 dni temu
-else {$priority='0.1';$changefreq='yearly';} // starcze ni≈º 180 dni
+else {$priority='0.1';$changefreq='yearly';} // starcze niø 180 dni
 
 $xmlForOffer ="	<url>
 		<loc>$perma</loc>
@@ -154,7 +154,7 @@ foreach($allposts as $ap) {
 
 
 if ($data==date("Y-m-d")) {$priority='1';$changefreq='daily';} // z dzisiaj
-else if ($data>=(date("Y-m-d", time() - (60*60*24*2)))) {$priority='0.9';$changefreq='daily';} //od dzi¬∂ do 2 dni temu
+else if ($data>=(date("Y-m-d", time() - (60*60*24*2)))) {$priority='0.9';$changefreq='daily';} //od dzi∂ do 2 dni temu
 else if ($data>=(date("Y-m-d", time() - (60*60*24*4)))) {$priority='0.8';$changefreq='daily';} //od 2 do 4 dni temu
 else if ($data>=(date("Y-m-d", time() - (60*60*24*7)))) {$priority='0.7';$changefreq='weekly';} //od 4 do 7 dni temu
 else if ($data>=(date("Y-m-d", time() - (60*60*24*14)))) {$priority='0.6';$changefreq='weekly';} //od 7 do 14 dni temu
@@ -162,7 +162,7 @@ else if ($data>=(date("Y-m-d", time() - (60*60*24*21)))) {$priority='0.5';$chang
 else if ($data>=(date("Y-m-d", time() - (60*60*24*30)))) {$priority='0.4';$changefreq='monthly';} //od 21 do 30 dni temu
 else if ($data>=(date("Y-m-d", time() - (60*60*24*90)))) {$priority='0.3';$changefreq='monthly';} //od 30 do 90 dni temu
 else if ($data>=(date("Y-m-d", time() - (60*60*24*180)))) {$priority='0.2';$changefreq='monthly';} //od 90 do 180 dni temu
-else {$priority='0.1';$changefreq='yearly';} // starcze ni≈º 180 dni
+else {$priority='0.1';$changefreq='yearly';} // starcze niø 180 dni
 
 $xmlForOffer ="	<url>
 		<loc>$perma</loc>

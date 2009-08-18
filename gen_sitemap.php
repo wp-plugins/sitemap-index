@@ -76,7 +76,7 @@ $siteurl = get_option('siteurl');
 
 
 $xmlForHeader = '<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by Sitemap Index plug-in for Wordpress version 1.2.1 (http://wordpress.org/extend/plugins/sitemap-index/) -->
+<!-- Created by Sitemap Index plug-in for Wordpress version 1.2.2 (http://wordpress.org/extend/plugins/sitemap-index/) -->
 ';
 
 

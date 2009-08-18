@@ -1,15 +1,20 @@
 <?php
 /*
 Plugin Name: Sitemap Index
-Plugin URI: http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin
+Plugin URI: http://torrentlist.pl/sitemap-index-plugin
 Description: Automaticly generates virtual sitemaps and sitemap index in XML format.
 Author: Twardes
-Version: 1.2.1
+Version: 1.2.2
 Author URI: http://www.forumbiznesu.eu/
 */
 
 /*
 == Changelog ==
+
+1.2.2
+
+*	Plugin home site changed.
+*	Compatibility checked.
 
 1.2.1
 
@@ -337,7 +342,7 @@ $orderby); ?> class="tog"/> Alphabetical, ascending
 <?=$added_sitemap?>
 <h3>About:</h3>
 <p>
-<a href="http://www.forumbiznesu.eu/wordpress/sitemap-index-plugin/" target="_blank">Sitemap Index Home Page</a>
+<a href="http://torrentlist.pl/sitemap-index-plugin" target="_blank">Sitemap Index Home Page</a>
 </p>
 <p>
 <a href="http://wordpress.org/extend/plugins/sitemap-index/" target="_blank">Sitemap Index at Wordpress.org</a>
